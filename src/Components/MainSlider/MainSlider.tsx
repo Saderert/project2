@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/scss';
@@ -8,28 +8,38 @@ import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 
 import styles from './MainSlider.module.scss';
+import Image from 'next/image';
 
-const MainSlider: React.FC = () => {
+import { SlideType } from '@/types/globalTypes';
+
+interface IMainSliderProps {
+  data: SlideType[];
+}
+
+const MainSlider:FC<IMainSliderProps> = ({data}) => {
+
   return (
-    <div className={styles.sliderWrapper}>
-      <Swiper
-        modules={[Navigation, Pagination]}
-        navigation
-        pagination={{ clickable: true }}
-        loop
-        className={styles.mySwiper}
-      >
-        <SwiperSlide>
-          <img src="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="" />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img src="" />
-        </SwiperSlide>
-      </Swiper>
-    </div>
+    <section className={styles.sliderSection}>
+      <h2>Хуй</h2>
+      <div className={styles.sliderWrapper} id='section1'>
+        <Swiper
+          modules={[Navigation, Pagination]}
+          navigation
+          pagination={{ clickable: true }}
+          loop
+          className={styles.mySwiper}
+        >
+          {data.map((item: SlideType) => (
+            <SwiperSlide key={Math.random()}>
+              <Image 
+                src={item.image}
+                alt={item.name}
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 

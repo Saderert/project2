@@ -3,6 +3,9 @@
 import React from 'react';
 import { useRouter } from 'next/navigation'; // Импортируем useRouter для навигации
 import styles from './Header.module.scss';    // Импортируем стили
+import Image from 'next/image';
+
+import Logo from '@/assets/Logo.png'
 
 export default function Header() {
   const router = useRouter();
@@ -22,10 +25,9 @@ export default function Header() {
 
   return (
     <header className={styles.header}>
-      {/* Вместо div.circle используем контейнер с <img> */}
       <div className={styles.logoContainer}>
-        <img
-          src="/logo.png"         // Путь к логотипу (если лежит в public/logo.png)
+        <Image
+          src={Logo}        
           alt="Логотип"
           className={styles.logoImage}
         />
