@@ -1,0 +1,40 @@
+.main {
+  /* Общие стили для main*/
+}
+
+/* Секция с плиткой */
+.tilesSection {
+  margin: 40px 0;
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+  }
+}
+
+/* Сетка для карточек */
+.tilesGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 10px; /* расстояние между карточками */
+  max-width: 1200px;
+  margin: 100 auto; 
+}
+
+/* Каждая карточка */
+.tile {
+  background-color: #ddd; /* белый фон */
+  border: 1px solid #FCFCFC;
+  border-radius: 10px;
+  padding: 30px;
+  display: flex; /* чтобы иконка и текст были в одной строке */
+  align-items: flex-start;
+  gap: 10px; /* отступ между иконкой и текстом */
+}
+
+/* Текст внутри карточки */
+.tile p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
